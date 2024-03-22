@@ -1,3 +1,4 @@
+
 package org.launchcode.java.demos.lsn5unittesting.main;
 
 public class Car {
@@ -85,4 +86,17 @@ public class Car {
         this.odometer += milesAbleToTravel;
     }
 
+    public void addGas(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("Gas amount cannot be negative");
+        }
+
+        double totalGas = i + this.gasTankLevel;
+
+        if (totalGas > this.gasTankSize) {
+            throw new IllegalArgumentException("Can't exceed tank size");
+        }
+
+        this.gasTankLevel = totalGas;
+    }
 }
